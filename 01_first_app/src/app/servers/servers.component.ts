@@ -10,6 +10,7 @@ export class ServersComponent {
   serverName = "TestServer";
   serverCreationStatus = "No server was created!";
   serverCreated = false;
+  servers = ['TestServer', 'TestServer2'];
 
   constructor() {
     setTimeout(() => this.allowNewServer = true, 2000);
@@ -17,6 +18,7 @@ export class ServersComponent {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = "Server was created! Name is " + this.serverName;
   }
 
