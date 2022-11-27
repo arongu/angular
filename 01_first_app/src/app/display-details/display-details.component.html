@@ -1,0 +1,7 @@
+<p>display-details works!</p>
+<button type="button" (click)="toggleDisplayDetails()">Display Details</button>
+<p *ngIf="displayDetails">Secret Password = tuna</p>
+<p *ngFor="let click of clicks; index as i"
+   [ngStyle]="i > 5 && {'background-color': 'blue'}"
+   [ngClass]="{'white' : i > 5}">{{ i }} -- {{ click }}</p>
+
