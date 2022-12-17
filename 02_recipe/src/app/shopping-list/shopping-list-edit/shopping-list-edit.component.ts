@@ -7,10 +7,10 @@ import {Ingredient} from "../../shared/ingridient.model";
   styleUrls: ['./shopping-list-edit.component.css']
 })
 export class ShoppingListEditComponent {
-  @ViewChild('nameInput', {static: false})
+  @ViewChild('nameInput')
   nameInputRef: ElementRef;
 
-  @ViewChild('amountInput', {static: false})
+  @ViewChild('amountInput')
   amountInputRef: ElementRef;
 
   // ingredientAdded = new EventEmitter<{name: string, amount: number}>();
