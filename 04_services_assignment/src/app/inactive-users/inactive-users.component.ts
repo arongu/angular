@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {UsersService} from "../users.service";
 
 @Component({
   selector: 'app-inactive-users',
@@ -6,10 +7,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./inactive-users.component.css']
 })
 export class InactiveUsersComponent {
-  @Input() users!: string[];
-  @Output() userSetToActive = new EventEmitter<number>();
+  inactiveUsers! : string[];
+
+  constructor(private usersService : UsersService) {
+    this.usersService.inactiveUsersUpdated.subscribe((inactiveUsers : string[]) => {
+      this.inactiveUsers = inactiveUsers;
+    });
+
+    this.inactiveUsers = this.usersService.getInactiveUsers();
+  }
 
   onSetToActive(id: number) {
-    this.userSetToActive.emit(id);
+    this.usersService.setToActive(id);
   }
 }
