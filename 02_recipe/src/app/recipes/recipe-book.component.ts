@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Recipe} from "./recipe.model";
 
 @Component({
-  selector: 'app-recipe-book',
+  selector: 'app-recipes',
   templateUrl: './recipe-book.component.html',
   styleUrls: ['./recipe-book.component.css']
 })
