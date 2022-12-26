@@ -12,6 +12,7 @@ import { RecipeComponent } from './recipe-book/recipe/recipe.component';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { ShoppingListIngerdientComponent } from './shopping-list/shopping-list-ingerdient/shopping-list-ingerdient.component';
 import { FormsModule } from "@angular/forms";
+import {RecipeService} from "./recipe-book/recipe.service";
 
 @NgModule({
   declarations: [
