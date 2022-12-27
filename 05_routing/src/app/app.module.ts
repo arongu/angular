@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
+import { RouterOutlet } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +11,8 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -23,8 +25,10 @@ import { ServersService } from './servers/servers.service';
     ServerComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
+    RouterOutlet,
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
