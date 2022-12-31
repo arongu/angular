@@ -21,12 +21,15 @@ export class ServersService {
     return this.servers;
   }
 
-  getServer(id: number) : {id: number, name: string, status: string} | undefined {
-    return this.servers.find(
+  getServer(id: number) : {id: number, name: string, status: string} {
+    const server = this.servers.find(
         (s) => {
-          return s.id === id;
+          // return s.id === id;
+          return s.id === Number(id);  // can also use === +id for number conversion
         }
     );
+
+    return server === undefined ? this.servers[0] : server;
   }
 
   updateServer(id: number, serverInfo: {name: string, status: string}) {
