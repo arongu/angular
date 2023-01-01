@@ -20,6 +20,6 @@ export class ServersComponent implements OnInit {
   }
 
   onClickReload() {
-    //this.router.navigate(['servers'], { relativeTo: this.route });
+    this.router.navigate(['servers'], { relativeTo: this.route });
   }
 }
