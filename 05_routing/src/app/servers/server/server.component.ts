@@ -20,12 +20,12 @@ export class ServerComponent implements OnInit {
     const id = +this.activatedRoute.snapshot.params['id'];
     this.server = this.serversService.getServer(id);
 
-    this.activatedRoute.queryParams.subscribe((params : Params) => {
+    this.activatedRoute.params.subscribe((params : Params) => {
       this.server = this.serversService.getServer(+params['id']);
     });
   }
 
-  onEdit() {
-
+  onEdit() { // navigate to the other component
+    this.router.navigate(['edit'],{relativeTo: this.activatedRoute});
   }
 }
