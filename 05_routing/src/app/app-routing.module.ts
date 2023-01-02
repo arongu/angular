@@ -6,6 +6,7 @@ import {HomeComponent} from "./home/home.component";
 import {EditServerComponent} from "./servers/edit-server/edit-server.component";
 import {UserComponent} from "./users/user/user.component";
 import {ServerComponent} from "./servers/server/server.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,9 @@ const routes: Routes = [
       { path: ':id', component: ServerComponent },
       { path: ':id/edit', component: EditServerComponent }
     ]
-  }
+  },
+  { path: 'not-found', component: PageNotFoundComponent},
+  { path: '**', redirectTo: 'not-found'} // wildcard this must be the last rule !!!
 ];
 
 @NgModule({
