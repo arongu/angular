@@ -25,7 +25,7 @@ export class ServerComponent implements OnInit {
     });
   }
 
-  onEdit() { // navigate to the other component
-    this.router.navigate(['edit'],{relativeTo: this.activatedRoute});
+  onEdit() { // navigate to the other component, and keep the query parameters, merge can be used ass well
+    this.router.navigate(['edit'],{relativeTo: this.activatedRoute, queryParamsHandling: "preserve"});
   }
 }
