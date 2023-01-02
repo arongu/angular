@@ -21,6 +21,10 @@ const routes: Routes = [
   },
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '**', redirectTo: 'not-found'} // wildcard this must be the last rule !!!
+    /*
+    To fix this behavior, you need to change the matching strategy to "full" :
+    { path: '', redirectTo: '/somewhere-else', pathMatch: 'full' }
+    */
 ];
 
 @NgModule({
