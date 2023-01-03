@@ -17,12 +17,13 @@ export class ServerComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this.activatedRoute.snapshot.params['id'];
-    this.server = this.serversService.getServer(id);
-
-    this.activatedRoute.params.subscribe((params : Params) => {
-      this.server = this.serversService.getServer(+params['id']);
-    });
+    this.activatedRoute.data.subscribe((data) => this.server = data['server']);
+    // const id = +this.activatedRoute.snapshot.params['id'];
+    // this.server = this.serversService.getServer(id);
+    //
+    // this.activatedRoute.params.subscribe((params : Params) => {
+    //   this.server = this.serversService.getServer(+params['id']);
+    // });
   }
 
   onEdit() { // navigate to the other component, and keep the query parameters, merge can be used ass well
