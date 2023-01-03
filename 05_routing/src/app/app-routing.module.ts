@@ -15,10 +15,14 @@ const routes: Routes = [
       { path: ':id/:name', component: UserComponent }
     ]
   },
-  { path: 'servers', canActivate: [AuthGuardService], component: ServersComponent, children: [
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent }
-    ]
+  {
+      path: 'servers',
+      //canActivate: [AuthGuardService],
+      canActivateChild: [AuthGuardService],
+      component: ServersComponent, children: [
+        { path: ':id', component: ServerComponent },
+        { path: ':id/edit', component: EditServerComponent }
+      ]
   },
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '**', redirectTo: 'not-found'} // wildcard this must be the last rule !!!
