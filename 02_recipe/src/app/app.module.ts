@@ -12,6 +12,7 @@ import {ShoppingListEditComponent} from './shopping-list/shopping-list-edit/shop
 import {ShoppingListIngerdientComponent} from './shopping-list/shopping-list-ingerdient/shopping-list-ingerdient.component';
 import {FormsModule} from "@angular/forms";
 import {DropdownDirective} from "./shared/dropdown.directive";
+import {AppRoutingModule} from "./app-routing-module";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {DropdownDirective} from "./shared/dropdown.directive";
     DropdownDirective
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule
   ],
