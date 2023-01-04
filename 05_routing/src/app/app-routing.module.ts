@@ -37,6 +37,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
+    // legacy hash mode for older web servers, when 404 cannot be configured to point back to the app
+    //imports: [RouterModule.forRoot(routes, {useHash: true})],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
