@@ -2,11 +2,13 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from "./recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class RecipeService {
+export class RecipeService implements Resolve<Recipe> {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
@@ -31,4 +33,15 @@ export class RecipeService {
   addIngredientsToShoppingList(ingredients : Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
+
+  resolve(route: ActivatedRouteSnapshot,
+          state: RouterStateSnapshot): Observable<Recipe> | Promise<Recipe> | Recipe {
+
+    const id = +route.params['id'];
+    const recipe = this.recipes[id]
+    console.log(recipe)
+
+    return recipe;
+  }
+
 }
