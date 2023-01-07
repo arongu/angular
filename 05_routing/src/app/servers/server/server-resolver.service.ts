@@ -6,7 +6,7 @@ import {Injectable} from "@angular/core";
 interface Server {id: number, name: string, status: string}
 
 @Injectable()
-export class ServeResolverService implements Resolve<Server>{
+export class ServerResolverService implements Resolve<Server>{
     constructor(private serversService : ServersService) {}
 
     resolve(route: ActivatedRouteSnapshot,
