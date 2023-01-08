@@ -10,7 +10,7 @@ import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.compo
 const routes : Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent, children: [
-      {path: '', component: RecipeStartComponent, pathMatch: 'full'},
+      {path: '', component: RecipeStartComponent},
       {path: ':id', component: RecipeDetailComponent, resolve: {recipeService: RecipeService}}
     ]
   },
