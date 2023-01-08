@@ -13,7 +13,7 @@ import {ShoppingListIngerdientComponent} from './shopping-list/shopping-list-ing
 import {FormsModule} from "@angular/forms";
 import {DropdownDirective} from "./shared/dropdown.directive";
 import {AppRoutingModule} from "./app-routing-module";
-import { SelectRecipeComponent } from './recipes/select-recipe/select-recipe.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { SelectRecipeComponent } from './recipes/select-recipe/select-recipe.com
     ShoppingListEditComponent,
     ShoppingListIngerdientComponent,
     DropdownDirective,
-    SelectRecipeComponent
+    RecipeStartComponent
   ],
   imports: [
     AppRoutingModule,

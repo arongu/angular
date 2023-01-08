@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Recipe} from "./recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
 import {ShoppingListService} from "../shopping-list/shopping-list.service";
@@ -9,8 +9,6 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class RecipeService implements Resolve<Recipe> {
-  recipeSelected = new EventEmitter<Recipe>();
-
   private recipes: Recipe[] = [
     new Recipe(
       'Test recipe', 'Test desc', 'https://images.immediate.co.uk/production/volatile/sites/2/2019/04/Dum-Aloo-e163632.jpg?quality=45&resize=768,574',
@@ -26,6 +24,10 @@ export class RecipeService implements Resolve<Recipe> {
   constructor(private shoppingListService : ShoppingListService) {
   }
 
+  getRecipe(index : number) {
+    return this.recipes[index];
+  }
+
   getRecipes() : Recipe[] {
     return this.recipes.slice();
   }
@@ -38,10 +40,6 @@ export class RecipeService implements Resolve<Recipe> {
           state: RouterStateSnapshot): Observable<Recipe> | Promise<Recipe> | Recipe {
 
     const id = +route.params['id'];
-    const recipe = this.recipes[id]
-    console.log(recipe)
-
-    return recipe;
+    return this.recipes[id];
   }
-
 }
